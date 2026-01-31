@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Computer Chapter 5 - Forms, Frames, and CSS Notes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #1f1f1f;
+      padding: 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    }
+
+    header h1 {
+      color: #9c27b0; /* Purple for Chapter 5 */
+      font-size: 24px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #1f1f1f;
+      padding: 10px 0;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      margin: 0 10px;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #9c27b0;
+      color: #000;
+    }
+
+    /* Collapsible sections */
+    .collapsible {
+      background-color: #1f1f1f;
+      color: #ffffff;
+      cursor: pointer;
+      padding: 15px 20px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 18px;
+      margin-bottom: 5px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .collapsible:hover {
+      background-color: #9c27b0;
+      color: #000;
+    }
+
+    .active {
+      background-color: #9c27b0;
+      color: #000;
+    }
+
+    .content {
+      padding: 0 20px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+      background-color: #222;
+      border-radius: 0 0 5px 5px;
+      margin-bottom: 10px;
+    }
+
+    .content p, .content pre {
+      padding: 10px 0;
+    }
+
+    pre {
+      background-color: #333;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #1f1f1f;
+      color: #888;
+      font-size: 14px;
+    }
+
+    /* Watermark text */
+    body::after {
+      content: "Written by ApurvRS";
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.1);
+      pointer-events: none;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 20px;
+      }
+
+      nav a {
+        margin: 5px;
+        padding: 6px 10px;
+      }
+
+      .collapsible {
+        font-size: 16px;
+        padding: 12px 15px;
+      }
+
+      .content {
+        padding: 0 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Computer Chapter 5 - Forms, Frames, and CSS</h1>
+  </header>
+
+  <nav>
+    <a href="#topic1">Forms</a>
+    <a href="#topic2">Frames</a>
+    <a href="#topic3">CSS</a>
+  </nav>
+
+  <!-- Collapsible Sections -->
+  <button class="collapsible" id="topic1">Forms</button>
+  <div class="content">
+    <p>Forms are used to collect user input in HTML.</p>
+    <p>Common form elements:</p>
+    <ul>
+      <li>&lt;input&gt; – text, password, radio, checkbox, etc.</li>
+      <li>&lt;textarea&gt; – multi-line text input</li>
+      <li>&lt;select&gt; – drop-down list</li>
+      <li>&lt;button&gt; or &lt;input type="submit"&gt; – submit button</li>
+    </ul>
+    <p>Example:</p>
+    <pre>
+&lt;form action="/submit" method="post"&gt;
+  Name: &lt;input type="text" name="name"&gt;&lt;br&gt;
+  Email: &lt;input type="email" name="email"&gt;&lt;br&gt;
+  Gender: 
+  &lt;input type="radio" name="gender" value="Male"&gt; Male
+  &lt;input type="radio" name="gender" value="Female"&gt; Female&lt;br&gt;
+  &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;
+    </pre>
+  </div>
+
+  <button class="collapsible" id="topic2">Frames</button>
+  <div class="content">
+    <p>Frames allow splitting the browser window into multiple sections, each displaying a separate HTML page.</p>
+    <p>Tags:</p>
+    <ul>
+      <li>&lt;iframe&gt; – embeds another HTML page</li>
+    </ul>
+    <p>Example:</p>
+    <pre>
+&lt;iframe src="page.html" width="400" height="300"&gt;&lt;/iframe&gt;
+    </pre>
+  </div>
+
+  <button class="collapsible" id="topic3">CSS (Cascading Style Sheets)</button>
+  <div class="content">
+    <p>CSS is used to style HTML elements (colors, fonts, layout).</p>
+    <p>Ways to add CSS:</p>
+    <ul>
+      <li>Inline – inside element: &lt;h1 style="color:red"&gt;Hello&lt;/h1&gt;</li>
+      <li>Internal – inside &lt;style&gt; in &lt;head&gt;</li>
+      <li>External – in a separate .css file linked using &lt;link&gt;</li>
+    </ul>
+    <p>Example (Internal CSS):</p>
+    <pre>
+&lt;style&gt;
+  body {
+    background-color: #121212;
+    color: #ffffff;
+  }
+  h1 {
+    color: #ff00ff;
+    text-align: center;
+  }
+&lt;/style&gt;
+    </pre>
+  </div>
+
+  <footer>
+    &copy; 2026 ApurvRS
+  </footer>
+
+  <script>
+    const collapsibles = document.querySelectorAll(".collapsible");
+    collapsibles.forEach((button) => {
+      button.addEventListener("click", function() {
+        this.classList.toggle("active");
+        const content = this.nextElementSibling;
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
