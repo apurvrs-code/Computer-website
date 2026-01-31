@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Computer Chapter 1 - Internet Basics Notes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #1f1f1f;
+      padding: 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    }
+
+    header h1 {
+      color: #ff9800;
+      font-size: 24px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #1f1f1f;
+      padding: 10px 0;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      margin: 0 10px;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #ff9800;
+      color: #000000;
+    }
+
+    /* Collapsible sections */
+    .collapsible {
+      background-color: #1f1f1f;
+      color: #ffffff;
+      cursor: pointer;
+      padding: 15px 20px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 18px;
+      margin-bottom: 5px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .collapsible:hover {
+      background-color: #ff9800;
+      color: #000;
+    }
+
+    .active {
+      background-color: #ff9800;
+      color: #000;
+    }
+
+    .content {
+      padding: 0 20px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+      background-color: #222;
+      border-radius: 0 0 5px 5px;
+      margin-bottom: 10px;
+    }
+
+    .content p {
+      padding: 10px 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #1f1f1f;
+      color: #888;
+      font-size: 14px;
+    }
+
+    /* Watermark text */
+    body::after {
+      content: "Written by ApurvRS";
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.1);
+      pointer-events: none;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 20px;
+      }
+
+      nav a {
+        margin: 5px;
+        padding: 6px 10px;
+      }
+
+      .collapsible {
+        font-size: 16px;
+        padding: 12px 15px;
+      }
+
+      .content {
+        padding: 0 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Computer Chapter 1 - Internet Basics</h1>
+  </header>
+
+  <nav>
+    <a href="#topic1">What is Internet</a>
+    <a href="#topic2">History of Internet</a>
+    <a href="#topic3">Web Browser & Search Engine</a>
+    <a href="#topic4">Email</a>
+    <a href="#topic5">Cloud Computing</a>
+    <a href="#topic6">Internet Safety</a>
+  </nav>
+
+  <!-- Collapsible Sections -->
+  <button class="collapsible" id="topic1">What is Internet</button>
+  <div class="content">
+    <p>The Internet is a global network of computers connected to share information and resources.</p>
+    <p>It allows communication through email, websites, social media, and more.</p>
+  </div>
+
+  <button class="collapsible" id="topic2">History of Internet</button>
+  <div class="content">
+    <p>The Internet started in the 1960s as ARPANET by the US Department of Defense.</p>
+    <p>It grew over decades to become a worldwide communication network connecting billions of devices.</p>
+  </div>
+
+  <button class="collapsible" id="topic3">Web Browser & Search Engine</button>
+  <div class="content">
+    <p>A web browser is software used to access the Internet, like Chrome, Firefox, or Edge.</p>
+    <p>A search engine, like Google or Bing, helps you find information on the Internet.</p>
+  </div>
+
+  <button class="collapsible" id="topic4">Email</button>
+  <div class="content">
+    <p>Email (Electronic Mail) is a method of sending digital messages over the Internet.</p>
+    <p>Popular services include Gmail, Yahoo Mail, and Outlook.</p>
+  </div>
+
+  <button class="collapsible" id="topic5">Cloud Computing</button>
+  <div class="content">
+    <p>Cloud computing allows storing and accessing data over the Internet instead of local devices.</p>
+    <p>Examples: Google Drive, Dropbox, Microsoft OneDrive.</p>
+  </div>
+
+  <button class="collapsible" id="topic6">Internet Safety</button>
+  <div class="content">
+    <p>Always protect personal information, use strong passwords, and avoid suspicious links.</p>
+    <p>Secure connections (HTTPS) and antivirus software help stay safe online.</p>
+  </div>
+
+  <footer>
+    &copy; 2026 ApurvRS
+  </footer>
+
+  <script>
+    const collapsibles = document.querySelectorAll(".collapsible");
+    collapsibles.forEach((button) => {
+      button.addEventListener("click", function() {
+        this.classList.toggle("active");
+        const content = this.nextElementSibling;
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
